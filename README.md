@@ -28,3 +28,6 @@
  sugestão de melhoria, não hesite em mandar um e-mail para a lista de
  discussão (kde-i18n-pt_br@kde.org)
 </pt_BR>
+
+
+Repositório oficial dos scripts: https://websvn.kde.org/trunk/l10n-support/pt_BR/
