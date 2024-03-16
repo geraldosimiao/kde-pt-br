@@ -6,6 +6,7 @@
 # *   Copyright (C) 2008/2009/2014 by Fernando Boaglio (boaglio@kde.org)    *
 # *   Copyright (C) 2019 by Frederico G. Guimarães (frederico@teia.bio.br)  *
 # *   Copyright (C) 2023 by Luiz F. Ranghetti (elchevive@opensuse.org)      *
+# *   Copyright (C) 2024 by Geraldo Simião (geraldosimiao@fedoraproject.org)*
 # *                                                                         *
 # *   This program is free software; you can redistribute it and/or modify  *
 # *   it under the terms of the GNU General Public License as published by  *
@@ -158,6 +159,7 @@ then
 
     # Define e cria os diretórios locais
     stable5_po=$raiz/stable/l10n-kf5
+    stable6_po=$raiz/stable/l10n-kf6
     trunk5_po=$raiz/trunk/l10n-kf5
     trunk6_po=$raiz/trunk/l10n-kf6
 
@@ -165,6 +167,7 @@ then
     echo -e "Criando os diretórios de trabalho..."
     echo -e "=====================================================================\n"
     mkdir -p $stable5_po
+    mkdir -p $stable6_po
     mkdir -p $trunk5_po
     mkdir -p $trunk6_po
 
@@ -202,6 +205,20 @@ then
     echo -e "=====================================================================\n"
 
     svn checkout $varsvn/branches/stable/l10n-kf5/pt_BR
+    
+    cd $stable6_po
+
+    echo -e "\n====================================================================="
+    echo -e "Recebendo arquivos template do ramo stable6"
+    echo -e "=====================================================================\n"
+
+    svn checkout $varsvn/branches/stable/l10n-kf6/templates
+
+    echo -e "\n====================================================================="
+    echo -e "Recebendo arquivos do ramo stable6"
+    echo -e "=====================================================================\n"
+
+    svn checkout $varsvn/branches/stable/l10n-kf6/pt_BR
 
     cd $trunk5_po
 
@@ -303,6 +320,7 @@ else
 
     # Define as variáveis dos diretórios locais
     stable5_po=$raiz/stable/l10n-kf5
+    stable6_po=$raiz/stable/l10n-kf6
     trunk5_po=$raiz/trunk/l10n-kf5
     trunk6_po=$raiz/trunk/l10n-kf6
 
@@ -339,6 +357,21 @@ else
     echo -e "=====================================================================\n"
 
     svn update pt_BR
+
+    cd $stable6_po
+
+    echo -e "\n====================================================================="
+    echo -e "Recebendo arquivos template do ramo stable6"
+    echo -e "=====================================================================\n"
+
+    svn update templates
+
+    echo -e "\n====================================================================="
+    echo -e "Recebendo arquivos do branch stable6"
+    echo -e "=====================================================================\n"
+
+    svn update pt_BR
+
 
     cd $trunk5_po
 
