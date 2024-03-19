@@ -1,28 +1,29 @@
 #!/bin/bash
 
-# ***************************************************************************
-# *   kde-pt_br - A tool for KDE's Brazilian Translation Team               *
-# *   Copyright (C) 2007 by Diniz Bortolotto (diniz.bb@gmail.com)           *
-# *   Copyright (C) 2008/2009/2014 by Fernando Boaglio (boaglio@kde.org)    *
-# *   Copyright (C) 2019 by Frederico G. Guimarães (frederico@teia.bio.br)  *
-# *   Copyright (C) 2023 by Luiz F. Ranghetti (elchevive@opensuse.org)      *
-# *   Copyright (C) 2024 by Geraldo Simião (geraldosimiao@fedoraproject.org)*
-# *                                                                         *
-# *   This program is free software; you can redistribute it and/or modify  *
-# *   it under the terms of the GNU General Public License as published by  *
-# *   the Free Software Foundation; either version 2 of the License, or     *
-# *   (at your option) any later version.                                   *
-# *                                                                         *
-# *   This program is distributed in the hope that it will be useful,       *
-# *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
-# *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
-# *   GNU General Public License for more details.                          *
-# *                                                                         *
-# *   You should have received a copy of the GNU General Public License     *
-# *   along with this program; if not, write to the                         *
-# *   Free Software Foundation, Inc.,                                       *
-# *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
-# ***************************************************************************/
+# ****************************************************************************
+# *   kde-pt_br - A tool for KDE's Brazilian Translation Team                *
+# *   Copyright (C) 2007 by Diniz Bortolotto (diniz.bb@gmail.com)            *
+# *   Copyright (C) 2008/2009/2014 by Fernando Boaglio (boaglio@kde.org)     *
+# *   Copyright (C) 2019 by Frederico G. Guimarães (frederico@teia.bio.br)   *
+# *   Copyright (C) 2023 by Luiz F. Ranghetti (elchevive@opensuse.org)       *
+# *   Copyright (C) 2024 by Geraldo Simião (geraldosimiao@fedoraproject.org) *
+# *   Copyright (C) 2024 by Frederico G. Guimarães (frederico@teia.bio.br)   *
+# *                                                                          *
+# *   This program is free software; you can redistribute it and/or modify   *
+# *   it under the terms of the GNU General Public License as published by   *
+# *   the Free Software Foundation; either version 2 of the License, or      *
+# *   (at your option) any later version.                                    *
+# *                                                                          *
+# *   This program is distributed in the hope that it will be useful,        *
+# *   but WITHOUT ANY WARRANTY; without even the implied warranty of         *
+# *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          *
+# *   GNU General Public License for more details.                           *
+# *                                                                          *
+# *   You should have received a copy of the GNU General Public License      *
+# *   along with this program; if not, write to the                          *
+# *   Free Software Foundation, Inc.,                                        *
+# *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.              *
+# ****************************************************************************
 
 echo -e "
 =====================================================================
@@ -46,7 +47,7 @@ then
     echo -e "\n====================================================================="
     echo -e "O software \"Subversion\" é necessário para o funcionamento desse"
     echo -e "script, mas ele não está instalado nesse sistema."
-    echo -e "\nInstale-o e execute o script novamente."
+    echo -e "\nPor favor, instale-o e execute o script novamente."
     echo -e "=====================================================================\n"
 
     exit 1
@@ -77,7 +78,7 @@ then
     # não seja a primeira vez que o script foi executado
     case $primeira_vez in
      n|N)
-        echo -e "\nProcure pelo arquivo \"kde-l10n-ptbr\" entre os seus"
+        echo -e "\nPor favor, procure pelo arquivo \"kde-l10n-ptbr\" entre os seus"
         echo -e "arquivos e mova-o para o diretório \"$HOME/.config\"."
         echo -e "\nCaso não encontre o arquivo, execute esse script novamente e"
         echo -e "selecione a opção \"S\" para que o arquivo seja criado."
@@ -120,7 +121,7 @@ then
         done
 
         echo -e "\n====================================================================="
-        echo -e "\nConfira as informações digitadas:"
+        echo -e "\nPor favor, confira as informações digitadas:"
         echo -e "- Nome: $nome"
         echo -e "- E-mail: $email"
         echo -e "- Possui conta de desenvolvedor? $desenvolvedor\n"
@@ -130,7 +131,7 @@ then
         do
             read -p "As informações estão corretas? (S/N) " dadosok
         done
-        
+
         if [[ $dadosok =~ [Nn] ]];
         then
             unset nome
@@ -138,15 +139,15 @@ then
             unset desenvolvedor
             unset dadosok
             echo -e "\n====================================================================="
-            echo -e "Digite novamente os seus dados.\n"
-        fi    
+            echo -e "Por favor, digite novamente os seus dados.\n"
+        fi
 
     done
 
     # Constrói os diretórios para receber os arquivos
     echo -e "\n====================================================================="
     echo -e "Em qual diretório você deseja baixar os arquivos de tradução?"
-    echo -e "Digite o caminho completo.\n"
+    echo -e "Por favor, digite o caminho completo.\n"
     echo -e "Caso você deixe em branco, a estrutura será criada dentro de\n"
     echo -e "\"$HOME/kde-l10n/\".\n"
 
@@ -158,18 +159,18 @@ then
     fi
 
     # Define e cria os diretórios locais
-    stable5_po=$raiz/stable/l10n-kf5
-    stable6_po=$raiz/stable/l10n-kf6
-    trunk5_po=$raiz/trunk/l10n-kf5
-    trunk6_po=$raiz/trunk/l10n-kf6
+    stable5=$raiz/stable/l10n-kf5
+    stable6=$raiz/stable/l10n-kf6
+    trunk5=$raiz/trunk/l10n-kf5
+    trunk6=$raiz/trunk/l10n-kf6
 
     echo -e "\n====================================================================="
     echo -e "Criando os diretórios de trabalho..."
     echo -e "=====================================================================\n"
-    mkdir -p $stable5_po
-    mkdir -p $stable6_po
-    mkdir -p $trunk5_po
-    mkdir -p $trunk6_po
+    mkdir -p $stable5
+    mkdir -p $stable6
+    mkdir -p $trunk5
+    mkdir -p $trunk6
 
     # Monta as variáveis utilizadas no checkout/update do Subversion,
     # dependendo do usuário ter ou não uma conta de desenvolvedor
@@ -192,21 +193,21 @@ then
     fi
 
     # Entra em cada um dos diretórios e faz o checkout inicial dos arquivos
-    cd $stable5_po
+    cd $stable5
 
     echo -e "\n====================================================================="
     echo -e "Recebendo arquivos template do ramo stable5"
     echo -e "=====================================================================\n"
 
     svn checkout $varsvn/branches/stable/l10n-kf5/templates
-    
+
     echo -e "\n====================================================================="
     echo -e "Recebendo arquivos do ramo stable5"
     echo -e "=====================================================================\n"
 
     svn checkout $varsvn/branches/stable/l10n-kf5/pt_BR
-    
-    cd $stable6_po
+
+    cd $stable6
 
     echo -e "\n====================================================================="
     echo -e "Recebendo arquivos template do ramo stable6"
@@ -220,7 +221,7 @@ then
 
     svn checkout $varsvn/branches/stable/l10n-kf6/pt_BR
 
-    cd $trunk5_po
+    cd $trunk5
 
     echo -e "\n====================================================================="
     echo -e "Recebendo arquivos templates do trunk5"
@@ -233,8 +234,8 @@ then
     echo -e "=====================================================================\n"
 
     svn checkout $varsvn/trunk/l10n-kf5/pt_BR
-    
-    cd $trunk6_po
+
+    cd $trunk6
 
     echo -e "\n====================================================================="
     echo -e "Recebendo arquivos templates do trunk6"
@@ -247,7 +248,7 @@ then
     echo -e "=====================================================================\n"
 
     svn checkout $varsvn/trunk/l10n-kf6/pt_BR
-    
+
     echo -e "\n====================================================================="
     echo -e "Gerando arquivo de configuração"
     echo -e "=====================================================================\n"
@@ -266,7 +267,7 @@ then
 
     # Vai para o diretório ~/.config e gera o arquivo de configurações
     cd $HOME/.config
-    
+
     echo -e "# Esse arquivo contém as informações para a criação do arquivo de" > kde-l10n-ptbr
     echo -e "# configurações do projeto de tradução para pt-BR no Lokalize," >> kde-l10n-ptbr
     echo -e "# bem como informações para o script de download do ambiente de" >> kde-l10n-ptbr
@@ -276,14 +277,71 @@ then
     echo -e "email=$email" >> kde-l10n-ptbr
     echo -e "desenvolvedor=$desenvolvedor" >> kde-l10n-ptbr
 
+    # Vai para o diretório $raiz para criar os arquivos de projetos do Lokalize
     cd $raiz
-    
+
+    # Cria o arquivo para o ramo stable5
+    echo -e "[General]" > index-stable5.lokalize
+    echo -e "BranchDir=trunk/l10n-kf5/pt_BR" >> index-stable5.lokalize
+    echo -e "GlossaryTbx=" >> index-stable5.lokalize
+    echo -e "LangCode=pt_BR" >> index-stable5.lokalize
+    echo -e "LanguageSource=Project" >> index-stable5.lokalize
+    echo -e "MailingList=kde-i18n-pt_BR@kde.org" >> index-stable5.lokalize
+    echo -e "PoBaseDir=stable/l10n-kf5/pt_BR" >> index-stable5.lokalize
+    echo -e "PotBaseDir=stable/l10n-kf5/templates" >> index-stable5.lokalize
+    echo -e "ProjLangTeam=Brazilian Portuguese <kde-i18n-pt_BR@kde.org>" >> index-stable5.lokalize
+    echo -e "ProjectID=kde-pt_BR" >> index-stable5.lokalize
+    echo -e "TargetLangCode=pt_BR" >> index-stable5.lokalize
+
+    # Cria o arquivo para o ramo stable6
+    echo -e "[General]" > index-stable6.lokalize
+    echo -e "BranchDir=trunk/l10n-kf6/pt_BR" >> index-stable6.lokalize
+    echo -e "GlossaryTbx=" >> index-stable6.lokalize
+    echo -e "LangCode=pt_BR" >> index-stable6.lokalize
+    echo -e "LanguageSource=Project" >> index-stable6.lokalize
+    echo -e "MailingList=kde-i18n-pt_BR@kde.org" >> index-stable6.lokalize
+    echo -e "PoBaseDir=stable/l10n-kf6/pt_BR" >> index-stable6.lokalize
+    echo -e "PotBaseDir=stable/l10n-kf6/templates" >> index-stable6.lokalize
+    echo -e "ProjLangTeam=Brazilian Portuguese <kde-i18n-pt_BR@kde.org>" >> index-stable6.lokalize
+    echo -e "ProjectID=kde-pt_BR" >> index-stable6.lokalize
+    echo -e "TargetLangCode=pt_BR" >> index-stable6.lokalize
+
+    # Cria o arquivo para o trunk5
+    echo -e "[General]" > index-trunk5.lokalize
+    echo -e "BranchDir=stable/l10n-kf5/pt_BR" >> index-trunk5.lokalize
+    echo -e "GlossaryTbx=" >> index-trunk5.lokalize
+    echo -e "LangCode=pt_BR" >> index-trunk5.lokalize
+    echo -e "LanguageSource=Project" >> index-trunk5.lokalize
+    echo -e "MailingList=kde-i18n-pt_BR@kde.org" >> index-trunk5.lokalize
+    echo -e "PoBaseDir=trunk/l10n-kf5/pt_BR" >> index-trunk5.lokalize
+    echo -e "PotBaseDir=trunk/l10n-kf5/templates" >> index-trunk5.lokalize
+    echo -e "ProjLangTeam=Brazilian Portuguese <kde-i18n-pt_BR@kde.org>" >> index-trunk5.lokalize
+    echo -e "ProjectID=kde-pt_BR" >> index-trunk5.lokalize
+    echo -e "TargetLangCode=pt_BR" >> index-trunk5.lokalize
+
+    # Cria o arquivo para o trunk6
+    echo -e "[General]" > index-trunk6.lokalize
+    echo -e "BranchDir=stable/l10n-kf6/pt_BR" >> index-trunk6.lokalize
+    echo -e "GlossaryTbx=" >> index-trunk6.lokalize
+    echo -e "LangCode=pt_BR" >> index-trunk6.lokalize
+    echo -e "LanguageSource=Project" >> index-trunk6.lokalize
+    echo -e "MailingList=kde-i18n-pt_BR@kde.org" >> index-trunk6.lokalize
+    echo -e "PoBaseDir=trunk/l10n-kf6/pt_BR" >> index-trunk6.lokalize
+    echo -e "PotBaseDir=trunk/l10n-kf6/templates" >> index-trunk6.lokalize
+    echo -e "ProjLangTeam=Brazilian Portuguese <kde-i18n-pt_BR@kde.org>" >> index-trunk6.lokalize
+    echo -e "ProjectID=kde-pt_BR" >> index-trunk6.lokalize
+    echo -e "TargetLangCode=pt_BR" >> index-trunk6.lokalize
+
     echo -e "\n====================================================================="
     echo -e "A configuração foi concluída e a cópia local do repositório de"
     echo -e "traduções foi baixada.\n"
-    echo -e "Dentro de cada pasta principal existe um arquivos de configuração do"
-    echo -e "Lokalize (*.lokalize). Ele faz com que o Lokalize traduza textos iguais"
-    echo -e "em dois ramos direntes (por ex. no stable 5 e no trunk5)"
+    echo -e "Foram gerados quatro arquivos de configuração para serem utilizados no"
+    echo -e "Lokalize. Todos se encontram no diretório:\n"
+    echo -e "$raiz\n"
+    echo -e "- \"index-stable5.lokalize\": para traduções do ramo \"stable5\";\n"
+    echo -e "- \"index-stable6.lokalize\": para traduções do ramo \"stable6\";\n"
+    echo -e "- \"index-trunk5.lokalize\": para traduções do \"trunk5\";\n"
+    echo -e "- \"index-trunk6.lokalize\": para traduções do \"trunk6\".\n"
     echo -e "Esses arquivos devem ser abertos a partir do menu \"Projeto\" no"
     echo -e "Lokalize, selecionando a opção \"Abrir projeto...\".\n"
     echo -e "Boas traduções!!!"
@@ -319,10 +377,10 @@ else
     fi
 
     # Define as variáveis dos diretórios locais
-    stable5_po=$raiz/stable/l10n-kf5
-    stable6_po=$raiz/stable/l10n-kf6
-    trunk5_po=$raiz/trunk/l10n-kf5
-    trunk6_po=$raiz/trunk/l10n-kf6
+    stable5=$raiz/stable/l10n-kf5
+    stable6=$raiz/stable/l10n-kf6
+    trunk5=$raiz/trunk/l10n-kf5
+    trunk6=$raiz/trunk/l10n-kf6
 
     echo -e "\n====================================================================="
     echo -e "O arquivo de configurações da tradução foi encontrado."
@@ -344,8 +402,8 @@ else
     fi
 
     # Entra em cada um dos diretórios e faz o checkout inicial dos arquivos
-    cd $stable5_po
-    
+    cd $stable5
+
     echo -e "\n====================================================================="
     echo -e "Recebendo arquivos template do ramo stable5"
     echo -e "=====================================================================\n"
@@ -353,12 +411,12 @@ else
     svn update templates
 
     echo -e "\n====================================================================="
-    echo -e "Recebendo arquivos do branch stable5"
+    echo -e "Recebendo arquivos do ramo stable5"
     echo -e "=====================================================================\n"
 
     svn update pt_BR
 
-    cd $stable6_po
+    cd $stable6
 
     echo -e "\n====================================================================="
     echo -e "Recebendo arquivos template do ramo stable6"
@@ -367,13 +425,12 @@ else
     svn update templates
 
     echo -e "\n====================================================================="
-    echo -e "Recebendo arquivos do branch stable6"
+    echo -e "Recebendo arquivos do ramo stable6"
     echo -e "=====================================================================\n"
 
     svn update pt_BR
 
-
-    cd $trunk5_po
+    cd $trunk5
 
     echo -e "\n====================================================================="
     echo -e "Recebendo arquivos templates do trunk5"
@@ -386,8 +443,8 @@ else
     echo -e "=====================================================================\n"
 
     svn update pt_BR
-    
-    cd $trunk6_po
+
+    cd $trunk6
 
     echo -e "\n====================================================================="
     echo -e "Recebendo arquivos templates do trunk6"
@@ -400,7 +457,6 @@ else
     echo -e "=====================================================================\n"
 
     svn update pt_BR
-
 
     if [[ $desenvolvedor=="S" ]]
     then
